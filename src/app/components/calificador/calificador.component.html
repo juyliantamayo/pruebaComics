@@ -1,0 +1,25 @@
+<mat-grid-list cols="5" rowHeight="100px">
+  <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="1"
+    *ngFor="let ratingId of ratingArr; index as i"
+    [id]="'star_' + i"
+    (click)="onClick(i + 1)"
+    [matTooltip]="ratingId + 1"
+    matTooltipPosition="above"
+  >
+    <mat-icon>
+      {{ showIcon(i) }}
+    </mat-icon>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-error *ngIf="starCount == null || starCount == 0">
+  Star count is <strong>required</strong> and cannot be zero
+</mat-error>
+<p class="body-2">
+  Votaste <span class="body-2">{{ rating }}</span> /
+  <span class="body-2">{{ starCount }}</span>
+</p>
+<button mat-raised-button color="primary" (click)="onClickNext()">
+  Siguiente
+</button>

@@ -1,0 +1,17 @@
+<div class="divPrincipal" *ngIf="mostarContenido">
+  <mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">{{ this.title }}</mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="4"
+      ><img src="{{ this.srcImage }}" class="imagenPrincipal"
+    /></mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <app-calificador
+        [rating]="rating"
+        [starCount]="starCount"
+        [color]="starColor"
+        (ratingUpdated)="onRatingChanged($event)"
+        (comicUpdate)="onComicChange()"
+      ></app-calificador>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
